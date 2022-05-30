@@ -3,7 +3,7 @@
 export(ciPlot)
 export(createRandDir)
 export(loadRdata)
-export(matrix_quantmean)
+export(matrixQuantmean)
 export(multiplot)
 export(progressbar)
 export(rowQuantmean)

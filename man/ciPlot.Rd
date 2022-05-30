@@ -8,7 +8,7 @@ ciPlot(
   data,
   col = 1,
   append = FALSE,
-  ylim = c(min(data$low[, col]), max(data$high[, col])),
+  ylim = c(min(as.matrix(data$low)[, col]), max(as.matrix(data$high)[, col])),
   ci_col = "lightgrey",
   ...
 )

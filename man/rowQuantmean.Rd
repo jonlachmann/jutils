@@ -9,7 +9,7 @@ rowQuantmean(mat, quantiles = c(0.05, 0.95), mean = TRUE)
 \arguments{
 \item{mat}{The matrix to use}
 
-\item{quantiles}{The quantiles to calculate, defaults to 0.05 and 0.95 (i.e. 90%)}
+\item{quantiles}{The quantiles to calculate, defaults to 0.05 and 0.95 (i.e. 90\%)}
 
 \item{mean}{Should the mean also be calculated? Defaults to TRUE}
 }

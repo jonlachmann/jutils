@@ -9,6 +9,7 @@ multiplot(
   logscale = F,
   ylim = c(min(mat), max(mat)),
   legend = F,
+  legend.pos = "bottomleft",
   names = names(mat),
   ...
 )
