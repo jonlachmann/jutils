@@ -1,5 +1,5 @@
 #' Print a progress bar while iterating over something
-#' @param progress A integer denoting how far we have come
+#' @param progress An integer denoting how far we have come
 #' @param size The total size of the progress bar
 #' @return progress + 1, to update the calling function
 #' @export
