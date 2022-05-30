@@ -25,13 +25,17 @@ multiplot <- function (mat, logscale=F, ylim=c(min(mat), max(mat)), legend=F, le
 #' @param col Which column of each matrix contains the data to plot, defaults to 1
 #' @param append Should we create a new plot or append a confidence interval to one already active, defaults to FALSE
 #' @param ylim The y axis limits for the plot, defaults to min of low and max of high
-#' @param ci_col The confidence area color, defaults to lightgrey
+#' @param ci.col The confidence area color, defaults to lightgrey
+#' @param ci.density The confidence area density, defaults to 100
+#' @param ci.angle The confidence area angle, defaults to 0
+#' @param ci.border The confidence area border, defaults to NA
 #' @param ... Additional arguments to pass to the plot function.
 #' @export
-ciPlot <- function(data, col=1, append=FALSE, ylim=c(min(as.matrix(data$low)[,col]), max(as.matrix(data$high)[,col])), ci_col="lightgrey", ...) {
+ciPlot <- function(data, col=1, append=FALSE, ylim=c(min(as.matrix(data$low)[,col]), max(as.matrix(data$high)[,col])),
+                   ci.col="lightgrey", ci.density=100, ci.angle=0, ci.border=NA, ...) {
   x_size <- nrow(as.matrix(data$mean))
   if (!append) plot(-10, xlim=c(1, x_size), ylim=ylim, ...)
   polygon(c(1:x_size, x_size:1), c(as.matrix(data$low)[,col], rev(as.matrix(data$high)[,col])),
-        col=ci_col, border=NA)
+        col=ci.col, density=ci.density, angle=ci.angle, border=ci.border)
   lines(as.matrix(data$mean)[,col])
 }

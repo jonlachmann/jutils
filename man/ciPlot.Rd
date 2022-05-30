@@ -9,7 +9,10 @@ ciPlot(
   col = 1,
   append = FALSE,
   ylim = c(min(as.matrix(data$low)[, col]), max(as.matrix(data$high)[, col])),
-  ci_col = "lightgrey",
+  ci.col = "lightgrey",
+  ci.density = 100,
+  ci.angle = 0,
+  ci.border = NA,
   ...
 )
 }
@@ -22,7 +25,13 @@ ciPlot(
 
 \item{ylim}{The y axis limits for the plot, defaults to min of low and max of high}
 
-\item{ci_col}{The confidence area color, defaults to lightgrey}
+\item{ci.col}{The confidence area color, defaults to lightgrey}
+
+\item{ci.density}{The confidence area density, defaults to 100}
+
+\item{ci.angle}{The confidence area angle, defaults to 0}
+
+\item{ci.border}{The confidence area border, defaults to NA}
 
 \item{...}{Additional arguments to pass to the plot function.}
 }
