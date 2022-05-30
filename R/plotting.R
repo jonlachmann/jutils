@@ -5,7 +5,7 @@
 #' @param legend Should a legend be appended to the plot? Defaults to false
 #' @param names The names to use in the legend, defaults to the names of the matrix mat
 #' @export
-multiplot <- function (mat, logscale=F, ylim=c(min(mat), max(mat)), legend=F, names=names(mat), ...) {
+multiplot <- function (mat, logscale=F, ylim=c(min(mat), max(mat)), legend=F, legend.pos="bottomleft", names=names(mat), ...) {
   if (logscale) {
     mat[mat > 0] <- log(mat[mat > 0])
     mat[mat < 0] <- -log(-mat[mat < 0])
@@ -16,7 +16,7 @@ multiplot <- function (mat, logscale=F, ylim=c(min(mat), max(mat)), legend=F, na
   if (ncol(mat) > 1) for (i in 2:ncol(mat)) lines(mat[,i], col=rbcol[i])
   if (legend) {
     if (is.null(names)) names <- seq_len(ncol(mat))
-    legend("bottomleft", col=rbcol, legend=names, lty=1)
+    legend(legend.pos, col=rbcol, legend=names, lty=1)
   }
 }
 
@@ -28,10 +28,10 @@ multiplot <- function (mat, logscale=F, ylim=c(min(mat), max(mat)), legend=F, na
 #' @param ci_col The confidence area color, defaults to lightgrey
 #' @param ... Additional arguments to pass to the plot function.
 #' @export
-ciPlot <- function(data, col=1, append=FALSE, ylim=c(min(data$low[,col]), max(data$high[,col])), ci_col="lightgrey", ...) {
-  x_size <- nrow(data$mean)
-  if (!append) plot(-10, xlim=c(1,x_size), ylim=ylim, ...)
-  polygon(c(1:x_size, x_size:1), c(data$low[,col], rev(data$high[,col])),
+ciPlot <- function(data, col=1, append=FALSE, ylim=c(min(as.matrix(data$low)[,col]), max(as.matrix(data$high)[,col])), ci_col="lightgrey", ...) {
+  x_size <- nrow(as.matrix(data$mean))
+  if (!append) plot(-10, xlim=c(1, x_size), ylim=ylim, ...)
+  polygon(c(1:x_size, x_size:1), c(as.matrix(data$low)[,col], rev(as.matrix(data$high)[,col])),
         col=ci_col, border=NA)
-  lines(data$mean[,col])
+  lines(as.matrix(data$mean)[,col])
 }

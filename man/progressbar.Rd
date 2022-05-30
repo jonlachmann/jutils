@@ -7,7 +7,7 @@
 progressbar(progress, size = 40)
 }
 \arguments{
-\item{progress}{A integer denoting how far we have come}
+\item{progress}{An integer denoting how far we have come}
 
 \item{size}{The total size of the progress bar}
 }
