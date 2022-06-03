@@ -32,10 +32,11 @@ multiplot <- function (mat, logscale=F, ylim=c(min(mat), max(mat)), legend=F, le
 #' @param ... Additional arguments to pass to the plot function.
 #' @export
 ciPlot <- function(data, col=1, append=FALSE, ylim=c(min(as.matrix(data$low)[,col]), max(as.matrix(data$high)[,col])),
-                   ci.col="lightgrey", ci.density=100, ci.angle=0, ci.border=NA, ...) {
+                   ci.col="lightgrey", ci.density=100, ci.angle=0, ci.border=NA,
+                   mean.lty="solid", ...) {
   x_size <- nrow(as.matrix(data$mean))
   if (!append) plot(-10, xlim=c(1, x_size), ylim=ylim, ...)
   polygon(c(1:x_size, x_size:1), c(as.matrix(data$low)[,col], rev(as.matrix(data$high)[,col])),
         col=ci.col, density=ci.density, angle=ci.angle, border=ci.border)
-  lines(as.matrix(data$mean)[,col])
+  lines(as.matrix(data$mean)[,col], lty=mean.lty)
 }
