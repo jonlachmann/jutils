@@ -9,6 +9,8 @@ Description: General utils for various purposes such as plotting, summarizing da
 License: GPL
 RoxygenNote: 7.2.0
 Encoding: UTF-8
+Depends:
+    RCurl
 Suggests: 
     knitr,
     rmarkdown

@@ -13,6 +13,7 @@ ciPlot(
   ci.density = 100,
   ci.angle = 0,
   ci.border = NA,
+  mean.lty = "solid",
   ...
 )
 }
