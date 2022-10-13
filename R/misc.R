@@ -12,3 +12,7 @@ progressbar <- function (progress, size=40) {
   cat("|")
   return(progress+1)
 }
+
+selectFromList <- function (list, item) {
+  sapply(list, function (x) eval(parse(text=paste0("x", item))))
+}

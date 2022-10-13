@@ -21,7 +21,7 @@ Here is a demonstration of how to create a confidence interval plot, as the func
 ```{r}
 data <- matrix(rnorm(2000), 20, 100)
 data <- data + 1:20
-data_qm <- rowQuantmean(data)
+data_qm <- quantmean(data)
 ciPlot(data_qm, main="Some random data", ylab="Value", xlab="Index")
 ```
 We can also plot many lines from a matrix using multiplot, to get a quick visualisation of a set of data
