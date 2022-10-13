@@ -4,7 +4,13 @@
 \alias{quantmean.array}
 \title{Function for calculating the quantiles and mean of an array}
 \usage{
-\method{quantmean}{array}(array, dim = 1, quantiles = c(0.05, 0.95), mean = TRUE)
+\method{quantmean}{array}(
+  array,
+  dim = 1,
+  quantiles = c(0.05, 0.95),
+  mean = TRUE,
+  median = FALSE
+)
 }
 \arguments{
 \item{array}{The list of matrices to use}

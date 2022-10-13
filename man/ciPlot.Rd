@@ -13,7 +13,10 @@ ciPlot(
   ci.density = 100,
   ci.angle = 0,
   ci.border = NA,
+  mean = TRUE,
   mean.lty = "solid",
+  median = FALSE,
+  median.lty = "solid",
   ...
 )
 }
@@ -33,6 +36,14 @@ ciPlot(
 \item{ci.angle}{The confidence area angle, defaults to 0}
 
 \item{ci.border}{The confidence area border, defaults to NA}
+
+\item{mean}{Should the mean be plotted, default is TRUE}
+
+\item{mean.lty}{Line type of mean, default is solid}
+
+\item{median}{Should median be plotted, default is FALSE}
+
+\item{median.lty}{Line type of median, default is solid}
 
 \item{...}{Additional arguments to pass to the plot function.}
 }

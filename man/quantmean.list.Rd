@@ -4,7 +4,7 @@
 \alias{quantmean.list}
 \title{Function for calculating the quantiles and mean of many matrices in a list}
 \usage{
-\method{quantmean}{list}(matlist, quantiles = c(0.05, 0.95), mean = TRUE)
+\method{quantmean}{list}(matlist, quantiles = c(0.05, 0.95), mean = TRUE, median = FALSE)
 }
 \arguments{
 \item{matlist}{The list of matrices to use}

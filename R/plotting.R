@@ -29,14 +29,19 @@ multiplot <- function (mat, logscale=F, ylim=c(min(mat), max(mat)), legend=F, le
 #' @param ci.density The confidence area density, defaults to 100
 #' @param ci.angle The confidence area angle, defaults to 0
 #' @param ci.border The confidence area border, defaults to NA
+#' @param mean Should the mean be plotted, default is TRUE
+#' @param mean.lty Line type of mean, default is solid
+#' @param median Should median be plotted, default is FALSE
+#' @param median.lty Line type of median, default is solid
 #' @param ... Additional arguments to pass to the plot function.
 #' @export
 ciPlot <- function(data, col=1, append=FALSE, ylim=c(min(as.matrix(data$low)[,col]), max(as.matrix(data$high)[,col])),
                    ci.col="lightgrey", ci.density=100, ci.angle=0, ci.border=NA,
-                   mean.lty="solid", ...) {
-  x_size <- nrow(as.matrix(data$mean))
+                   mean=TRUE, mean.lty="solid", median=FALSE, median.lty="solid", ...) {
+  x_size <- nrow(as.matrix(data$low))
   if (!append) plot(-10, xlim=c(1, x_size), ylim=ylim, ...)
   polygon(c(1:x_size, x_size:1), c(as.matrix(data$low)[,col], rev(as.matrix(data$high)[,col])),
         col=ci.col, density=ci.density, angle=ci.angle, border=ci.border)
-  lines(as.matrix(data$mean)[,col], lty=mean.lty)
+  if (mean) lines(as.matrix(data$mean)[,col], lty=mean.lty)
+  if (median) lines(as.matrix(data$median)[,col], lty=median.lty)
 }
