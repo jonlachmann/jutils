@@ -22,6 +22,9 @@ createRandDir <- function () {
 #' Load the contents of an RData file that is stored in a Base64 string
 #' @param .base64 The Base64 string containing the RData file
 #' @return A list containing the contents of the file in .base64
+#'
+#' @importFrom RCurl base64Decode
+#'
 #' @export
 loadBase64RData <- function (.base64) {
   # Decode the base64 to a raw vector

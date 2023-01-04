@@ -20,11 +20,8 @@ The DESCRIPTION file:
 
 Maintainer: \packageMaintainer{jutils}
 }
-\references{
-}
+
 \keyword{ package }
-\seealso{
-}
 \examples{
 # simple examples of the most important functions
 }

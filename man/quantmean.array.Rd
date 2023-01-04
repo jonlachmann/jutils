@@ -5,21 +5,26 @@
 \title{Function for calculating the quantiles and mean of an array}
 \usage{
 \method{quantmean}{array}(
-  array,
+  x,
   dim = 1,
   quantiles = c(0.05, 0.95),
   mean = TRUE,
-  median = FALSE
+  median = FALSE,
+  ...
 )
 }
 \arguments{
-\item{array}{The list of matrices to use}
+\item{x}{The list of matrices to use}
 
 \item{dim}{The dimension to take quantiles and means over}
 
 \item{quantiles}{The quantiles to calculate, defaults to 0.05 and 0.95 (i.e. 90\%)}
 
 \item{mean}{Should the mean also be calculated? Defaults to TRUE}
+
+\item{median}{Should the median also be calculated? Defaults to FALSE}
+
+\item{...}{Not used.}
 }
 \value{
 A list containing the mean per element over all the matrices, together with the low and high quantiles selected

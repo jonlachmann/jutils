@@ -1,9 +1,13 @@
-#' Plot many columns of data in a matrix in the same plot
-#' @param mat The matrix containing the data to be plotted
-#' @param logscale Should the data be log transformed before plotting
-#' @param ylim The limits of the y axis of the plot, default to the min and max of mat
-#' @param legend Should a legend be appended to the plot? Defaults to false
-#' @param names The names to use in the legend, defaults to the names of the matrix mat
+#' Plot many columns of data in a matrix in the same plot.
+#' @param mat The matrix containing the data to be plotted.
+#' @param logscale Should the data be log transformed before plotting.
+#' @param ylim The limits of the y axis of the plot, default to the min and max of mat.
+#' @param legend Should a legend be appended to the plot? Defaults to false.
+#' @param legend.pos If a legend is used, where should it be positioned, defaults to bottomleft.
+#' @param names The names to use in the legend, defaults to the names of the matrix mat.
+#' @param ... Additional arguments to pass to plot.
+#'
+#' @importFrom grDevices rainbow
 #' @export
 multiplot <- function (mat, logscale=F, ylim=c(min(mat), max(mat)), legend=F, legend.pos="bottomleft", names=names(mat), ...) {
   if (logscale) {
@@ -34,6 +38,9 @@ multiplot <- function (mat, logscale=F, ylim=c(min(mat), max(mat)), legend=F, le
 #' @param median Should median be plotted, default is FALSE
 #' @param median.lty Line type of median, default is solid
 #' @param ... Additional arguments to pass to the plot function.
+#'
+#' @importFrom graphics lines polygon
+#'
 #' @export
 ciPlot <- function(data, col=1, append=FALSE, ylim=c(min(as.matrix(data$low)[,col]), max(as.matrix(data$high)[,col])),
                    ci.col="lightgrey", ci.density=100, ci.angle=0, ci.border=NA,

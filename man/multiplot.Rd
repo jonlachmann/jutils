@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotting.R
 \name{multiplot}
 \alias{multiplot}
-\title{Plot many columns of data in a matrix in the same plot}
+\title{Plot many columns of data in a matrix in the same plot.}
 \usage{
 multiplot(
   mat,
@@ -15,16 +15,20 @@ multiplot(
 )
 }
 \arguments{
-\item{mat}{The matrix containing the data to be plotted}
+\item{mat}{The matrix containing the data to be plotted.}
 
-\item{logscale}{Should the data be log transformed before plotting}
+\item{logscale}{Should the data be log transformed before plotting.}
 
-\item{ylim}{The limits of the y axis of the plot, default to the min and max of mat}
+\item{ylim}{The limits of the y axis of the plot, default to the min and max of mat.}
 
-\item{legend}{Should a legend be appended to the plot? Defaults to false}
+\item{legend}{Should a legend be appended to the plot? Defaults to false.}
 
-\item{names}{The names to use in the legend, defaults to the names of the matrix mat}
+\item{legend.pos}{If a legend is used, where should it be positioned, defaults to bottomleft.}
+
+\item{names}{The names to use in the legend, defaults to the names of the matrix mat.}
+
+\item{...}{Additional arguments to pass to plot.}
 }
 \description{
-Plot many columns of data in a matrix in the same plot
+Plot many columns of data in a matrix in the same plot.
 }

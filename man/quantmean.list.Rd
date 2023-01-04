@@ -4,14 +4,18 @@
 \alias{quantmean.list}
 \title{Function for calculating the quantiles and mean of many matrices in a list}
 \usage{
-\method{quantmean}{list}(matlist, quantiles = c(0.05, 0.95), mean = TRUE, median = FALSE)
+\method{quantmean}{list}(x, quantiles = c(0.05, 0.95), mean = TRUE, median = FALSE, ...)
 }
 \arguments{
-\item{matlist}{The list of matrices to use}
+\item{x}{The list of matrices to use}
 
 \item{quantiles}{The quantiles to calculate, defaults to 0.05 and 0.95 (i.e. 90\%)}
 
 \item{mean}{Should the mean also be calculated? Defaults to TRUE}
+
+\item{median}{Should the median also be calculated? Defaults to FALSE}
+
+\item{...}{Not used.}
 }
 \value{
 A list containing the mean per element over all the matrices, together with the low and high quantiles selected
