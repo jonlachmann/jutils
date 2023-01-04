@@ -27,6 +27,7 @@ quantmean.list <- function (matlist, quantiles=c(0.05, 0.95), mean=TRUE, median=
   if (median) result$median <- matrix(apply(mat_all, 1, median), nrow(matlist[[1]]), ncol(matlist[[1]]))
   result$low <- matrix(apply(mat_all, 1, quantile, probs = quantiles[1]), nrow(matlist[[1]]), ncol(matlist[[1]]))
   result$high <- matrix(apply(mat_all, 1, quantile, probs = quantiles[2]), nrow(matlist[[1]]), ncol(matlist[[1]]))
+  for (i in seq_along(result)) colnames(result[[i]]) <- colnames(matlist[[1]])
   return(result)
 }
 
