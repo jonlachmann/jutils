@@ -1,3 +1,43 @@
+#' Get the first day of a period given a date.
+#' @param x The date to get the first day of the period of.
+#' @param frequency The frequency denoting the period, should be 1 (year), 4 (quarter), 12 (month) or 52 (week).
+#' @param sunday Should weeks start on sunday, default = TRUE, otherwise weeks start on sunday. Only used if frequency == 52.
+#' @return A Date which is the first day of the period of x.
+#' @export
+periodStart <- function (x, frequency, sunday = TRUE) {
+  if (frequency == 1) {
+    yearStart(x)
+  } else if (frequency == 4) {
+    quarterStart(x)
+  } else if (frequency == 12) {
+    monthStart(x)
+  } else if (frequency == 52) {
+    weekStart(x, sunday)
+  } else {
+    stop("Invalid frequency specified, should be 1 (year), 4 (quarter), 12 (month) or 52 (week).")
+  }
+}
+
+#' Get the last day of a period given a date.
+#' @param x The date to get the last day of the period of.
+#' @param frequency The frequency denoting the period, should be 1 (year), 4 (quarter), 12 (month) or 52 (week).
+#' @param sunday Should weeks start on sunday, default = TRUE, otherwise weeks start on sunday. Only used if frequency == 52.
+#' @return A Date which is the last day of the period of x.
+#' @export
+periodEnd <- function (x, frequency, sunday = TRUE) {
+  if (frequency == 1) {
+    yearEnd(x)
+  } else if (frequency == 4) {
+    quarterEnd(x)
+  } else if (frequency == 12) {
+    monthEnd(x)
+  } else if (frequency == 52) {
+    weekEnd(x, sunday)
+  } else {
+    stop("Invalid frequency specified, should be 1 (year), 4 (quarter), 12 (month) or 52 (week).")
+  }
+}
+
 #' Get the first day of a month given a date.
 #' @param x The date to get the first day of the month of.
 #' @return A Date which is the first day of the month of x.
@@ -65,7 +105,7 @@ quarterEnd <- function(x) {
 
 #' Get the first day of a week given a date.
 #' @param x The date to get the first day of the week of.
-#' @param sunday Should weeks start on sunday, default = TRUE, otherwise start end on sunday.
+#' @param sunday Should weeks start on sunday, default = TRUE, otherwise weeks start on monday.
 #' @return A Date which is the first day of the week of x.
 #' @export
 weekStart <- function(x, sunday = TRUE) {
