@@ -66,7 +66,7 @@ monthEnd <- function (x) {
 yearStart <- function(x) {
   x <- as.POSIXlt(x)
   x$mday <- 1
-  x$mon <- 1
+  x$mon <- 0
   as.Date(x)
 }
 
