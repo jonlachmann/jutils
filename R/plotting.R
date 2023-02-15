@@ -35,8 +35,10 @@ multiplot <- function (mat, logscale=F, ylim=c(min(mat), max(mat)), legend=F, le
 #' @param ci.border The confidence area border, defaults to NA
 #' @param mean Should the mean be plotted, default is TRUE
 #' @param mean.lty Line type of mean, default is solid
+#' @param mean.col Line color of mean, default is black
 #' @param median Should median be plotted, default is FALSE
 #' @param median.lty Line type of median, default is solid
+#' @param median.col Line color of median, default is blue
 #' @param ... Additional arguments to pass to the plot function.
 #'
 #' @importFrom graphics lines polygon
@@ -44,11 +46,21 @@ multiplot <- function (mat, logscale=F, ylim=c(min(mat), max(mat)), legend=F, le
 #' @export
 ciPlot <- function(data, col=1, append=FALSE, ylim=c(min(as.matrix(data$low)[,col]), max(as.matrix(data$high)[,col])),
                    ci.col="lightgrey", ci.density=100, ci.angle=0, ci.border=NA,
-                   mean=TRUE, mean.lty="solid", median=FALSE, median.lty="solid", ...) {
+                   mean=TRUE, mean.lty="solid", mean.col="black", median=FALSE, median.lty="solid", median.col="blue", ...) {
+  if (!is.list(data) || is.null(data$low) || is.null(data$high) || !is.numeric(data$low) || !is.numeric(data$high)) {
+    stop("Data must be a list, containing plottable data in data$low and data$high.")
+  }
+  if (mean && (is.null(data$mean) || !is.numeric(data$mean))) {
+    stop("If a mean line should be plotted, it must be available in data$mean.")
+  }
+  if (median && (is.null(data$median) || !is.numeric(data$median))) {
+    stop("If a median line should be plotted, it must be available in data$median.")
+  }
+
   x_size <- nrow(as.matrix(data$low))
   if (!append) plot(-10, xlim=c(1, x_size), ylim=ylim, ...)
   polygon(c(1:x_size, x_size:1), c(as.matrix(data$low)[,col], rev(as.matrix(data$high)[,col])),
         col=ci.col, density=ci.density, angle=ci.angle, border=ci.border)
-  if (mean) lines(as.matrix(data$mean)[,col], lty=mean.lty)
-  if (median) lines(as.matrix(data$median)[,col], lty=median.lty)
+  if (mean) lines(as.matrix(data$mean)[,col], lty=mean.lty, col=mean.col)
+  if (median) lines(as.matrix(data$median)[,col], lty=median.lty, col=median.col)
 }

@@ -15,8 +15,10 @@ ciPlot(
   ci.border = NA,
   mean = TRUE,
   mean.lty = "solid",
+  mean.col = "black",
   median = FALSE,
   median.lty = "solid",
+  median.col = "blue",
   ...
 )
 }
@@ -41,9 +43,13 @@ ciPlot(
 
 \item{mean.lty}{Line type of mean, default is solid}
 
+\item{mean.col}{Line color of mean, default is black}
+
 \item{median}{Should median be plotted, default is FALSE}
 
 \item{median.lty}{Line type of median, default is solid}
+
+\item{median.col}{Line color of median, default is blue}
 
 \item{...}{Additional arguments to pass to the plot function.}
 }
