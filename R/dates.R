@@ -128,3 +128,14 @@ weekEnd <- function(x, saturday = TRUE) {
   else
     as.Date(x) + 7 - x$wday
 }
+
+#' Get the number of months between two dates.
+#' @param start The start date.
+#' @param end The end date.
+#' @return An integer which is the number of (full) months between start and end.
+#' @export
+monthDiff <- function (start, end) {
+  ed <- as.POSIXlt(start)
+  sd <- as.POSIXlt(end)
+  12 * (ed$year - sd$year) + (ed$mon - sd$mon)
+}

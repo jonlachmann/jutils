@@ -23,5 +23,4 @@ Maintainer: \packageMaintainer{jutils}
 
 \keyword{ package }
 \examples{
-# simple examples of the most important functions
 }
