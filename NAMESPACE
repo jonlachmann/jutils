@@ -2,6 +2,8 @@
 
 S3method(quantmean,array)
 S3method(quantmean,list)
+export(addDays)
+export(addMonths)
 export(ciPlot)
 export(createRandDir)
 export(loadBase64RData)

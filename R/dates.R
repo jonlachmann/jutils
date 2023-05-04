@@ -139,3 +139,25 @@ monthDiff <- function (start, end) {
   sd <- as.POSIXlt(end)
   12 * (ed$year - sd$year) + (ed$mon - sd$mon)
 }
+
+#' Add a number of months to a date.
+#' @param x The date to add months to.
+#' @param n The number of months to add to x.
+#' @return A Date which is n months after x.
+#' @export
+addMonths <- function (x, n) {
+  x <- as.POSIXlt(x)
+  x$mon <- x$mon + n
+  return(as.Date(x))
+}
+
+#' Add a number of days to a date.
+#' @param x The date to add days to.
+#' @param n The number of days to add to x.
+#' @return A Date which is n days after x.
+#' @export
+addDays <- function (x, n) {
+  x <- as.POSIXlt(x)
+  x$mday <- x$mday + n
+  return(as.Date(x))
+}
