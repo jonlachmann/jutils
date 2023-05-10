@@ -88,7 +88,7 @@ yearEnd <- function (x) {
 quarterStart <- function(x) {
   x <- as.POSIXlt(x)
   x$mday <- 1
-  x$mon <- floor((x$mon + 2) / 3)
+  x$mon <- floor(x$mon / 3) * 3
   as.Date(x)
 }
 
@@ -99,7 +99,7 @@ quarterStart <- function(x) {
 quarterEnd <- function(x) {
   x <- as.POSIXlt(x)
   x$mday <- 1
-  x$mon <- floor((x$mon + 2) / 3) + 3
+  x$mon <- floor(x$mon / 3) * 3 + 3
   as.Date(x) - 1
 }
 
@@ -148,6 +148,10 @@ monthDiff <- function (start, end) {
 addMonths <- function (x, n) {
   x <- as.POSIXlt(x)
   x$mon <- x$mon + n
+  mday <- as.numeric(format(x, "%d"))
+  if (mday != x$mday) {
+    x$mday <- x$mday - mday
+  }
   return(as.Date(x))
 }
 
